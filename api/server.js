@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const workoutRoute = require("./routes/workoutsRoute");
+const workoutRoutes = require("./routes/workoutsRoute");
+const userRoutes = require("./routes/userRoute");
 require("dotenv").config();
 
 const app = express();
@@ -8,7 +9,8 @@ const app = express();
 app.use(express.json());
 
 //routes
-app.use("/api/workouts", workoutRoute);
+app.use("/api/workouts", workoutRoutes);
+app.use("/api/user", userRoutes);
 const DB = process.env.MONGO_URL.replace(
   "<PASSWORD>",
   process.env.MONGO_PASSWORD
